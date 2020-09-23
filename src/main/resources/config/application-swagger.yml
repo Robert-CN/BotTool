@@ -1,0 +1,11 @@
+swagger:
+  enabled: true
+  version: 1.0.0
+  description: bot-tool
+  title: bot-tool RESTful apis
+  contact:
+    name: Robert
+    email: robert@163.com
+  base-package: com.zyxm.module.controller
+  authorization:
+    key-name: Authorization

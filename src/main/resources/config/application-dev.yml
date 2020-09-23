@@ -1,0 +1,15 @@
+server:
+  port: 8090
+spring:
+  servlet:
+    multipart:
+      #最大文件大小。值可以使用后缀“MB”或“KB”。指示兆字节或千字节大小。
+      max-file-size: 10MB
+      # 最大请求大小可以是mb也可以是kb
+      # max-request-size: 100MB
+# 自定义文件配置
+upload:
+  # 文件上传前缀
+  upload-path-prefix: E:/upload
+  # 文件访问前缀
+  access-path-prefix: /temp
