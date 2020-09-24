@@ -13,6 +13,9 @@ import java.util.*;
  **/
 @Slf4j
 public class ExcelUtil {
+    public static final Integer MAX_WIDTH = 30;
+    public static final Integer MIN_WIDTH = 12;
+
     /**
      * 获取行/创建行
      */
@@ -147,13 +150,18 @@ public class ExcelUtil {
      * 设置默认列宽
      */
     public static void setDefaultcellWidth(Sheet sheet, Integer length) {
-        long width = 12;
+        long width = 0;
         if (!Objects.isNull(length)) {
             if (length >= 4) {
-                width = Math.round((10 * length) / (length / 2));
+                width = Math.round((10 * (length >> 1)) >> 1);
             } else {
-                width = Math.round((10 * length) / 1.5);
+                width = Math.round((10 * length) >> 1);
             }
+        }
+        if (width < MIN_WIDTH) {
+            width = MIN_WIDTH;
+        } else if (width > MAX_WIDTH) {
+            width = MAX_WIDTH;
         }
         sheet.setDefaultColumnWidth(Integer.parseInt(String.valueOf(width)));
     }
